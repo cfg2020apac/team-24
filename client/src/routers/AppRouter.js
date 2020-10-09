@@ -33,7 +33,7 @@ const AppRouter=()=>{
                     <Route path='/profile/:id' component={ProfilePage}/>
                     <Route path='/postjob' component={PostJobPage}/>
                     <Route path='/findjob' component={FindJobPage}/>
-                    <Route path='/job/:id' component={JobPage}/>
+                    <Route path='/event/:id' component={JobPage}/>
                     <Route path='/questions' component={question1}/>
                     <Route 
                         path='/signin' 

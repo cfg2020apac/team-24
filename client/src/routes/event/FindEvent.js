@@ -23,7 +23,7 @@ const FindJobPage = () => {
   // const jobsArray=jobs.map((job)=><Link key={job.id} to={`/job/${job.id}`}><p>Title: {job.title}, Description: {job.description}, Pay: {job.currency} {job.bill}</p></Link>)
   // const jobsArray=jobs.map((job)=><Link key={job.id} to={`/job/${job.id}`}><Card title={job.title} hoverable style={{height: 175, overflow: 'scroll', marginBottom: '15px' }}><p>{job.description}</p><p>Pay: {job.currency} {job.bill}</p><p>Posted on: {new Date(job.createdAt).toDateString()}</p></Card></Link>)
   const jobsArray = jobs.map((job) => (
-    <Link key={job.id} to={`/job/${job.id}`}>
+    <Link key={job.id} to={`/event/${job.id}`}>
       <Card
         title={job.title}
         hoverable

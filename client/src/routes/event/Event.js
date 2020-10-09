@@ -2,16 +2,17 @@ import React, { useEffect, useState, useContext } from "react";
 import client from "../../apollo";
 import getClient from "../../utils/getClient";
 import { getJob, acceptJob } from "../../utils/operations";
-import { Spin, Card, Button } from "antd";
+import { Spin, Card, Button, Row, Col } from "antd";
 import CurrentUserContext from "../../context/current-user.context";
 import { Link } from "react-router-dom";
 import events from "./events";
 
 const JobPage = (props) => {
   const [job, setJob] = useState({});
-  const [acceptLoad, setAcceptLoad] = useState(false);
+  const [accepted, setAccepted] = useState(false);
   const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
   const [loading, setLoading] = useState(false);
+
   const {
     match: { params },
   } = props;
@@ -20,24 +21,27 @@ const JobPage = (props) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  const onAccept = () => {
+  const onAccept = (e) => {
     const client = getClient(currentUser.token);
     const variables = {
       id: params.id,
     };
-    setAcceptLoad(true);
-    client
-      .mutate({
-        mutation: acceptJob,
-        variables,
-      })
-      .then(({ data }) => {
-        setJob({
-          ...job,
-          associate: data.acceptJob.associate,
-        });
-        setAcceptLoad(false);
-      });
+    setAccepted(true)
+
+    // e.target.innerHTML = "Accepted"
+    // setAcceptLoad(true);
+    // client
+    //   .mutate({
+    //     mutation: acceptJob,
+    //     variables,
+    //   })
+    //   .then(({ data }) => {
+    //     setJob({
+    //       ...job,
+    //       associate: data.acceptJob.associate,
+    //     });
+    //     setAcceptLoad(false);
+    //   });
   };
 
   useEffect(() => {
@@ -45,7 +49,7 @@ const JobPage = (props) => {
 
     const data = events[0];
 
-    setJob(data.job);
+    setJob(data);
     // client.query({
     //     query: getJob,
     //     variables
@@ -62,43 +66,55 @@ const JobPage = (props) => {
       {loading ? (
         <Spin />
       ) : (
-        <Card title={job.title}>
+        <>
+        <Card
+          title={job.title}
+          hoverable
+          style={{ display: "block", overflow: "auto", marginBottom: "15px" }}
+        >
+          <Row gutter={[16, 16]}>
+            <Col span={6}>
+              <img
+                src={require("../../assets/img/cfg_event_1.jpg")}
+                style={{ width: "150px", height: "190px", objectFit: "cover" }}
+              />
+            </Col>
+            <Col span={18}>
+              <p>{job.description}</p>
+              <p>
+                Event on: {job.time}, {job.date}
+              </p>
+              <p>
+                Open to applications: <text style={{ color: "green" }}>Yes</text>
+              </p>
+              {
+                accepted?(
+                  <>
+                    <text style={{ color: "green" }}>Volunteered</text>
+                    <br/>
+                    <br/>
+                    <Button onClick= {()=> setAccepted(false)}>Leave</Button>
+                  </>
+                ):(
+                  <>
+                    <Button onClick={onAccept}>Volunteer</Button>
+                  </>
+                )
+              }
+              
+            </Col>
+          </Row>
+        </Card>
+        {/* <Card title={job.title}>
           <p>ID: {job.id}</p>
           <p>Description: {job.description}</p>
           <p>Date: {job.date}</p>
           <p>
             Open to applications: <text style={{ color: "green" }}>Yes</text>
           </p>
-          {currentUser.token && job.client ? (
-            <>
-              {currentUser.userId === job.client.id ? (
-                <>
-                  <br />
-                  <br />
-                  <Link>Unpublish</Link>
-                </>
-              ) : (
-                <>
-                  <br />
-                  <br />
-                  {acceptLoad ? (
-                    <Spin />
-                  ) : (
-                    <>
-                      {job.associate ? (
-                        <></>
-                      ) : (
-                        <Button onClick={onAccept}>Accept</Button>
-                      )}
-                    </>
-                  )}
-                </>
-              )}
-            </>
-          ) : (
-            <>{job.associate ? <></> : <p>Sign in to accept this job</p>}</>
-          )}
-        </Card>
+          
+        </Card> */}
+        </>
       )}
     </>
   );
