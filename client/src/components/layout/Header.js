@@ -25,7 +25,7 @@ const Header = ({ history }) => {
 
   const signInWithGoogle = async () => {
     const data = {
-      email: "diabhaque@gmail.com",
+      email: "dc523cb313b63",
       password: "12345",
     };
     const userDetails = {
