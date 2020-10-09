@@ -5,17 +5,17 @@ import Layout from '../components/layout/Layout'
 import SignIn from '../routes/authentication/SignIn'
 import SignUp from '../routes/authentication/SignUp'
 
-import HomePage from '../routes/pages/Index'
-import AboutPage from '../routes/pages/About'
-import ContactPage from '../routes/pages/Contact'
+import HomePage from '../routes/pages/index'
+import AboutPage from '../routes/pages/about'
+import ContactPage from '../routes/pages/contact'
 
 import ProfilePage from '../routes/profile/Profile'
 
-import FindJobPage from '../routes/jobs/FindJob'
-import PostJobPage from '../routes/jobs/PostJob'
-import JobPage from '../routes/jobs/Job'
+import FindJobPage from '../routes/event/FindEvent'
+import PostJobPage from '../routes/event/PostEvent'
+import JobPage from '../routes/event/Event'
 
-import NotFoundPage from '../routes/pages/NotFound'
+import NotFoundPage from '../routes/pages/notFound'
 import CurrentUserContext from '../context/current-user.context'
 import 'antd/dist/antd.css'
 

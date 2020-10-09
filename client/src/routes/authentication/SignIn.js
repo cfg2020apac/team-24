@@ -5,6 +5,7 @@ import { Form, Input, Button, Checkbox, Spin } from 'antd';
 import { login } from '../../utils/operations';
 import CurrentUserContext from '../../context/current-user.context'
 import { useMutation} from '@apollo/react-hooks'
+import users from '../../users'
 
 
 const layout = {
@@ -27,34 +28,54 @@ const SignIn = (props) => {
   const [error, setError]= useState(false)
   const { history }=props
   const [currentUser, setCurrentUser] =useContext(CurrentUserContext)
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
  
   const onFinish = async (values) => {
+
     setLoading(true)
-    const variables ={
-      data:{
-          email: values.email,
-          password: values.password
-      }
-    } 
-    client.mutate({
-      mutation: login,
-      variables
-    }).then(({data})=>{
-      const userDetails={
-        token: data.loginUser.token,
-        userId: data.loginUser.user.id
-      }
 
-      setLoading(false)
-      setCurrentUser(userDetails)
+    const data = {
+        email: values.email,
+        password: values.password
+    }
 
-      localStorage.setItem('user', JSON.stringify(userDetails))
+    const userDetails={
+      token: data.password,
+      userId: data.email
+    }
 
-      if(data.loginUser.token){
-        history.push(`/profile/${data.loginUser.user.id}`)
+    await sleep(1000);
 
-      }
-    })
+    setLoading(false)
+    setCurrentUser(userDetails)
+
+    history.push(`/profile/${data.email}`)
+    
+    // client.mutate({
+    //   mutation: login,
+    //   variables
+    // }).then(({data})=>{
+    //   const userDetails={
+    //     token: data.loginUser.token,
+    //     userId: data.loginUser.user.id
+    //   }
+
+    //   setLoading(false)
+    //   setCurrentUser(userDetails)
+
+    //   localStorage.setItem('user', JSON.stringify(userDetails))
+
+    //   if(data.loginUser.token){
+    //     history.push(`/profile/${data.loginUser.user.id}`)
+
+    //   }
+    // })
+
+
   };
 
   const onFinishFailed = errorInfo => {

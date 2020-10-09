@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import { Input, Spin, Card, Col, Row, Pagination } from 'antd';
 import { getJobs } from '../../utils/operations'
 import client from '../../apollo'
-import JobPage from './Job';
+import JobPage from './Event';
 import CurrentUserContext from '../../context/current-user.context';
+
+import events from '../../events';
 
 const { Search } = Input
 const { Meta } = Card
@@ -19,21 +21,25 @@ const FindJobPage = () => {
     const [end, setEnd] =useState(pageLen)
     const [loading, setLoading]= useState(true)
     // const jobsArray=jobs.map((job)=><Link key={job.id} to={`/job/${job.id}`}><p>Title: {job.title}, Description: {job.description}, Pay: {job.currency} {job.bill}</p></Link>)
-    const jobsArray=jobs.map((job)=><Link key={job.id} to={`/job/${job.id}`}><Card title={job.title} hoverable style={{height: 175, overflow: 'scroll', marginBottom: '15px' }}><p>{job.description}</p><p>Pay: {job.currency} {job.bill}</p><p>Posted on: {new Date(job.createdAt).toDateString()}</p></Card></Link>)
-    
+    // const jobsArray=jobs.map((job)=><Link key={job.id} to={`/job/${job.id}`}><Card title={job.title} hoverable style={{height: 175, overflow: 'scroll', marginBottom: '15px' }}><p>{job.description}</p><p>Pay: {job.currency} {job.bill}</p><p>Posted on: {new Date(job.createdAt).toDateString()}</p></Card></Link>)
+    const jobsArray=jobs.map((job)=><Link key={job.id} to={`/job/${job.id}`}><Card title={job.title} hoverable style={{height: 175, overflow: 'scroll', marginBottom: '15px' }}><p>{job.description}</p><p>Event on: {job.createdAt}</p></Card></Link>)
     useEffect(()=>{
         const variables={
             orderBy: 'createdAt_DESC'
         }
         setLoading(true)
+
+        setJobs(events)
+
+        setLoading(false)
         
-        client.query({
-            query: getJobs,
-            variables
-        }).then(({ data })=>{
-            setLoading(false)
-            setJobs(data.jobs)
-        })
+        // client.query({
+        //     query: getJobs,
+        //     variables
+        // }).then(({ data })=>{
+        //     setLoading(false)
+        //     setJobs(data.jobs)
+        // })
     },[])
 
     // useEffect(()=>{
@@ -64,7 +70,7 @@ const FindJobPage = () => {
 
     return (
         <div>
-            <h1>Find Jobs</h1>
+            <h1>Find Events</h1>
             <br/>
             <Search
                 size='large'
@@ -87,7 +93,7 @@ const FindJobPage = () => {
                             <Pagination defaultCurrent={1} defaultPageSize={pageLen} total={jobsArray.length} onChange={onPageChange} />
                             </>
                         ):(
-                            <p>Please <Link to='/signin'>sign in</Link> as a linguist to find a job</p>
+                            <p>Please <Link to='/signin'>sign in</Link> to look for events</p>
                         )
                     }
                     </div>

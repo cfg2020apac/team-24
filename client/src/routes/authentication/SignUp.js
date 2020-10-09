@@ -48,35 +48,57 @@ const SignUp = ({history}) => {
   const [currentUser, setCurrentUser] =useContext(CurrentUserContext)
   const [form] = Form.useForm();
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   const onFinish = async (values) => {
-    setLoading(true)
-    const variables={
-      data:{
-        name: values.otherNames + " " + values.surname,
-        email: values.email,
-        password: values.password,
-        phoneNumber: values.phoneNumber
-      }
+
+    
+    const data = {
+      email: values.email,
+      password: values.password
     }
 
-    client.mutate({
-      mutation: createUser,
-      variables
-    }).then(({ data })=>{
-      const userDetails={
-        token: data.createUser.token,
-        userId: data.createUser.user.id
-      }
+    const userDetails={
+      token: data.password,
+      userId: data.email
+    }
 
-      setLoading(false)
-      setCurrentUser(userDetails)
+    await sleep(1000);
+
+    setLoading(false)
+    setCurrentUser(userDetails)
+
+    history.push(`/profile/${data.email}`)
+
+    // const variables={
+    //   data:{
+    //     name: values.otherNames + " " + values.surname,
+    //     email: values.email,
+    //     password: values.password,
+    //     phoneNumber: values.phoneNumber
+    //   }
+    // }
+
+    // client.mutate({
+    //   mutation: createUser,
+    //   variables
+    // }).then(({ data })=>{
+    //   const userDetails={
+    //     token: data.createUser.token,
+    //     userId: data.createUser.user.id
+    //   }
+
+    //   setLoading(false)
+    //   setCurrentUser(userDetails)
   
-      localStorage.setItem('user', JSON.stringify(userDetails))
+    //   localStorage.setItem('user', JSON.stringify(userDetails))
       
-      if(data.createUser.token){
-        history.push(`/profile/${data.createUser.user.id}`)
-      }
-    })
+    //   if(data.createUser.token){
+    //     history.push(`/profile/${data.createUser.user.id}`)
+    //   }
+    // })
   };
 
   const onFinishFailed = errorInfo => {

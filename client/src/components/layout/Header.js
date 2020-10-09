@@ -23,7 +23,7 @@ const Header = ({history}) => {
     <header className={headerStyles.header}>
       <h1>
         <NavLink className={headerStyles.title} to="/">
-          LinguistsCollective.com
+          Blossom World Society
         </NavLink>
       </h1>
       <nav className={headerStyles.navWhole}>
@@ -44,7 +44,7 @@ const Header = ({history}) => {
               activeClassName={headerStyles.activeNavItem}
               to="/about"
             >
-              About
+              Getting Started
             </NavLink>
           </li>
           <li>
@@ -53,7 +53,7 @@ const Header = ({history}) => {
               activeClassName={headerStyles.activeNavItem}
               to="/contact"
             >
-              Contact
+              Chatroom
             </NavLink>
           </li>
           <li>
@@ -62,7 +62,7 @@ const Header = ({history}) => {
               activeClassName={headerStyles.activeNavItem}
               to="/findjob"
             >
-              Find Jobs
+              Find Events
             </NavLink>
           </li>
           <li>
@@ -71,7 +71,7 @@ const Header = ({history}) => {
               activeClassName={headerStyles.activeNavItem}
               to="/postjob"
             >
-              Post a Job
+              Share an Event
             </NavLink>
           </li>
         </ul>

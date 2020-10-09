@@ -23,21 +23,31 @@ const ProfilePage = (props) => {
     const { match: { params } }= props
     const [currentUser] =useContext(CurrentUserContext)
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     useEffect(()=>{
         console.log(currentUser)
         
         if (currentUser.token && params.id===currentUser.userId){
-            const client = getClient(currentUser.token)
+            // const client = getClient(currentUser.token)
+
+            setUserId("data.me.id")
+            setName("data.me.name")
+            setEmail("data.me.email")
+            setGreetings(GREETINGS.me)
+            setLoading(false)
             
-            client.query({
-                query:getProfile 
-            }).then(({ data })=>{
-                setUserId(data.me.id)
-                setName(data.me.name)
-                setEmail(data.me.email)
-                setGreetings(GREETINGS.me)
-                setLoading(false)
-            })
+            // client.query({
+            //     query:getProfile 
+            // }).then(({ data })=>{
+            //     setUserId(data.me.id)
+            //     setName(data.me.name)
+            //     setEmail(data.me.email)
+            //     setGreetings(GREETINGS.me)
+            //     setLoading(false)
+            // })
             // .error((data)=>{
             //     setError(true)
             //     console.log(data)
@@ -50,16 +60,22 @@ const ProfilePage = (props) => {
                 id: params.id
             }
 
-            client.query({
-                query: getUser, 
-                variables
-            }).then(({data})=>{
-                setUserId(data.user.id)
-                setName(data.user.name)
-                setGreetings(GREETINGS.user)
-                setEmail("")
-                setLoading(false)
-            })
+            setUserId("data.me.id")
+            setName("data.me.name")
+            setEmail("data.me.email")
+            setGreetings(GREETINGS.user)
+            setLoading(false)
+
+            // client.query({
+            //     query: getUser, 
+            //     variables
+            // }).then(({data})=>{
+            //     setUserId(data.user.id)
+            //     setName(data.user.name)
+            //     setGreetings(GREETINGS.user)
+            //     setEmail("")
+            //     setLoading(false)
+            // })
             
         }
     }, [currentUser, params.id])
