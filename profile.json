@@ -4,7 +4,7 @@
             "Id": 1242342345,
             "Title": "Mr",
             "firstName": "Lebron",
-            "middleName": "robi",  
+            "middleName": "Robi",  
 	        "lastName": "James",
             "registrationDate": "12 May 2019",
             "dateOfBirth": "20 Dec 1996",
@@ -14,10 +14,10 @@
             "Interests": [],
             "Age": 24,
             "Gender": "male",
-            "Race": "Chinese",
+            "Race": "Black",
             "Nationality": "American",
             "isStaff": false,
-            "ContactNumber": 999,
+            "ContactNumber": 12345678,
             "volunteerStatus": "Active",
             "Stickers": {
                 "babySticker": false,
@@ -40,41 +40,41 @@
             }
         }, 
         "Profile2": {
-            "Id": 12423452345,
+            "Id": 3435532345,
             "Title": "Mr",
             "firstName": "Charan",
             "middleName": "Kumar Raju",
 	        "lastName": "RUDRARAJU",
             "registrationDate": "14 May 2019",
             "dateOfBirth": "15 Dec 2001",
-            "Gmail": "lebron23@gmail.com",
-            "password(encrypted)": "kingjames",
+            "Gmail": "rajuuu@gmail.com",
+            "password(encrypted)": "curry",
             "isVerfied": true,
             "Interests": [],
             "Age": 37,
             "Gender": "male",
-            "Race": "Chinese",
-            "Nationality": "American",
+            "Race": "Black",
+            "Nationality": "Indian",
             "isStaff": false,
-            "ContactNumber": 999,
+            "ContactNumber": 911,
             "volunteerStatus": "Active",
             "Stickers": {
-                "babySticker": false,
+                "babySticker": true,
                 "Sticker1": {
                     "isSticker": true,
-                    "Quantity": 2
+                    "Quantity": 9
                 },
                 "sticker2": {
                     "isSticker": true,
-                    "quantity": 5
+                    "quantity": 3
                 },
                 "sticker3": {
                     "isSticker": true,
-                    "quantity": 3
+                    "quantity": 18
                 },
                 "sticker4": {
                     "isSticker": true,
-                    "quantity": 4
+                    "quantity": 24
                 }
             }
         },
@@ -92,7 +92,7 @@
             "Interests": [],
             "Age": 58,
             "Gender": "male",
-            "Race": "Chinese",
+            "Race": "Black",
             "Nationality": "American",
             "isStaff": false,
             "ContactNumber": 112,
@@ -105,11 +105,50 @@
                 },
                 "sticker2": {
                     "isSticker": true,
-                    "quantity": 5
+                    "quantity": 7
                 },
                 "sticker3": {
                     "isSticker": true,
-                    "quantity": 3
+                    "quantity": 13
+                },
+                "sticker4": {
+                    "isSticker": true,
+                    "quantity": 14
+                }
+            }
+        },
+        "Profile4": {
+            "Id": 5432433453,
+            "Title": "Mr",
+            "firstName": "Uzumaki",
+            "middleName": "Ramen",
+	        "lastName": "Naruto",
+            "registrationDate": "22 Mar 2007",
+            "dateOfBirth": "19 Jun 1999",
+            "Gmail": "rashengan@gmail.com",
+            "password(encrypted)": "rashengan",
+            "isVerfied": true,
+            "Interests": [],
+            "Age": 19,
+            "Gender": "male",
+            "Race": "Asian",
+            "Nationality": "American",
+            "isStaff": false,
+            "ContactNumber": 89999234234,
+            "volunteerStatus": "Active",
+            "Stickers": {
+                "babySticker": false,
+                "Sticker1": {
+                    "isSticker": true,
+                    "Quantity": 10
+                },
+                "sticker2": {
+                    "isSticker": true,
+                    "quantity": 15
+                },
+                "sticker3": {
+                    "isSticker": true,
+                    "quantity": 30
                 },
                 "sticker4": {
                     "isSticker": true,

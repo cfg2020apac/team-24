@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer>
             <br/>
-            <p>Created by NewBees, © 2020</p>
+            <p>Created by team Newbees, © 2020</p>
         </footer>
     )
 }

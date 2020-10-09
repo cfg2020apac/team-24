@@ -1,4 +1,4 @@
-import React, {useRef, useState, useContext} from 'react'
+import React, {useRef, useState, useContext, useEffect} from 'react'
 import { Link} from 'react-router-dom'
 import firebase,{ firestore, auth } from '../../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -36,8 +36,11 @@ function ChatRoomMain() {
     const [formValue, setFormValue] = useState('');
 
     const [form] = Form.useForm();
-  
     
+    useEffect(()=>{
+        dummy.current.scrollIntoView({ behavior: 'smooth' });
+    })
+
     const onFinish = async (values)=>{
         console.log('success', values)
         const { uid, photoURL } = auth.currentUser;

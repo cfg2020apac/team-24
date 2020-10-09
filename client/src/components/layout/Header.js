@@ -25,7 +25,7 @@ const Header = ({ history }) => {
 
   const signInWithGoogle = async () => {
     const data = {
-      email: "diabhaque@gmail.com",
+      email: "dc523cb313b63",
       password: "12345",
     };
     const userDetails = {
@@ -46,7 +46,13 @@ const Header = ({ history }) => {
           Blossom World Society
         </NavLink>
       </h1>
-      
+      {/* <Search
+        size="large"
+        placeholder="search for the event you want"
+        onSearch={(value) => console.log(value)}
+        style={{ width: "100%" }}
+        enterButton
+      /> */}
       <nav className={headerStyles.navWhole}>
         <ul className={headerStyles.navList}>
           <li>
@@ -56,7 +62,7 @@ const Header = ({ history }) => {
               to="/"
               exact={true}
             >
-              Home (Deprecated?)
+              Home 
             </NavLink>
           </li>
           <li>
@@ -65,7 +71,7 @@ const Header = ({ history }) => {
               activeClassName={headerStyles.activeNavItem}
               to="/findjob"
             >
-              Feed
+              Events
             </NavLink>
           </li>
           <li>
