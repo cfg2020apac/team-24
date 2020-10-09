@@ -56,30 +56,24 @@ const PostJobPage = ( { history } ) => {
         setLoading(true)
         const client = getClient(currentUser.token)
 
-        const variables={
-            data:{
-                title: values.title,
-                description: values.description,
-                languages: values.languages,
-                associateType: values.associateType,
-                date: values.date.format('MMMM Do YYYY, h:mm:ss a'),
-                location: values.location,
-                currency: values.currency,
-                bill: values.bill
-            }
+        const data = {
+            id: 2,
+            title: "Standards For Being A Good Student and Child",
+            description: '',
+            createdAt: "25th December",
+            date: "Saturday, October 31, 2020",
+            time: "3pm - 4pm",
         }
-
-        console.log(variables.data)
     
-        client.mutate({
-          mutation: createJob,
-          variables
-        }).then(({ data })=>{
-            if(data.createJob.id){
-                history.push(`/job/${data.createJob.id}`)
-            }
-            setLoading(false)
-        })
+        // client.mutate({
+        //   mutation: createJob,
+        //   variables
+        // }).then(({ data })=>{
+        //     if(data.createJob.id){
+        //         history.push(`/job/${data.createJob.id}`)
+        //     }
+        //     setLoading(false)
+        // })
       };    
     
     const onFinishFailed = errorInfo => {
@@ -98,9 +92,9 @@ const PostJobPage = ( { history } ) => {
             {
                 !currentUser.token?(
                     <>
-                        You have to sign in to post a Job
+                        You have to be an admin to post an Event.
                         <br/>
-                        Sign in <Link to='/signin'>here</Link>
+                        If you're an admin, sign in <Link to='/signin'>here</Link>
                     </>
                 ):(
                     <>
@@ -115,12 +109,12 @@ const PostJobPage = ( { history } ) => {
                     >
                         <Form.Item
                             name="title"
-                            label="Job Title"
+                            label="Event Title"
                             validateTrigger="onBlur"
                             rules={[
                             {
                                 required: true,
-                                message: "Please include the title of the job"
+                                message: "Please include the title of the Event"
                             }
                             ]}
                         >
@@ -128,52 +122,16 @@ const PostJobPage = ( { history } ) => {
                         </Form.Item>
                         <Form.Item 
                             name="description" 
-                            label="Job Description"
+                            label="Event Description"
                             validateTrigger="onBlur"
                             rules={[
                             {
                                 required: true,
-                                message: "Please include a description of the job"
+                                message: "Please include a description of the Event"
                             }
                             ]}
                         >
-                            <TextArea placeholder="Details of the job"/>
-                        </Form.Item>
-                        <Form.Item
-                            name="languages"
-                            label="Languages Reguired"
-                            validateTrigger="onBlur"
-                            rules={[
-                            {
-                                required: true,
-                                message: 'Please select the languages required', 
-                                type: 'array'
-                            },
-                            ]}
-                        >
-                            <Select mode="multiple" placeholder="Languages required for the task">
-                                {languageOptions}
-                            </Select>
-
-                        </Form.Item>
-                        <Form.Item
-                            name="associateType"
-                            label="Linguist Category"
-                            validateTrigger="onBlur"
-                            rules={[
-                            {
-                                required: true,
-                                message: 'Please select the category of linguist required',
-                            },
-                            ]}
-                        >
-                            <Select
-                            placeholder="Linguist Category"
-                            allowClear
-                            >
-                                {associateTypeOptions}
-                            </Select>
-
+                            <TextArea placeholder="Details of the Event"/>
                         </Form.Item>
                         <Form.Item
                             name="date"
@@ -204,38 +162,6 @@ const PostJobPage = ( { history } ) => {
                         >
                             <TextArea placeholder="Where do you need them to show up?"/>
                         </Form.Item>
-                        <Form.Item
-                            name="currency"
-                            label="Currency"
-                            rules={[
-                            {
-                                required: true,
-                                message: 'Please select a currency',
-                            },
-                            ]}
-                        >
-                            <Select
-                            placeholder="Currency"
-                            allowClear
-                            >
-                                {currencyOptions}
-                            </Select>
-
-                        </Form.Item>
-
-                        <Form.Item
-                            name="bill"
-                            label="Payment Amount"
-                            rules={[
-                            {
-                                required: true,
-                                message: 'Please input the payment amount',
-                            },
-                            ]}
-                        >
-                        <InputNumber placeholder="100"/>
-
-                        </Form.Item>
 
                         <Form.Item {...tailFormItemLayout}>
                             {
@@ -243,7 +169,7 @@ const PostJobPage = ( { history } ) => {
                                 <Spin/>
                                 ):(
                                 <Button type="primary" htmlType="submit">
-                                    Post Job
+                                    Post Event
                                 </Button>
                                 )
                             }
