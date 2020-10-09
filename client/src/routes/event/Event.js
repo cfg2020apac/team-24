@@ -5,7 +5,7 @@ import { getJob, acceptJob } from "../../utils/operations";
 import { Spin, Card, Button } from "antd";
 import CurrentUserContext from "../../context/current-user.context";
 import { Link } from "react-router-dom";
-import events from "../../events";
+import events from "./events";
 
 const JobPage = (props) => {
   const [job, setJob] = useState({});
