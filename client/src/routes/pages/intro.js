@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CurrentUserContext from '../../context/current-user.context'
 import { Input,Spin } from 'antd'
-import data from './events.json'
+import data from '../../assets/json/events.json'
 
 const { Search } = Input
 
