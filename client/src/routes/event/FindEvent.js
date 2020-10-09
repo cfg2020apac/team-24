@@ -28,8 +28,15 @@ const FindJobPage = () => {
         hoverable
         style={{ display: "block", overflow: "auto", marginBottom: "15px" }}
       >
-        <p>{job.description}</p>
-        <p>Event on: {job.date}</p>
+        <Row gutter={[16, 16]}>
+          <Col span={6}></Col>
+          <Col span={18}>
+            <p>{job.description}</p>
+            <p>
+              Event on: {job.time}, {job.date}
+            </p>
+          </Col>
+        </Row>
       </Card>
     </Link>
   ));
