@@ -1,0 +1,121 @@
+{
+    "profiles": {
+        "Profile1": {
+            "Id": 1242342345,
+            "Title": "Mr",
+            "firstName": "Lebron",
+            "middleName": "robi",  
+	        "lastName": "James",
+            "registrationDate": "12 May 2019",
+            "dateOfBirth": "20 Dec 1996",
+            "Gmail": "lebron23@gmail.com",
+            "password(encrypted)": "kingjames",
+            "isVerfied": true,
+            "Interests": [],
+            "Age": 24,
+            "Gender": "male",
+            "Race": "Chinese",
+            "Nationality": "American",
+            "isStaff": false,
+            "ContactNumber": 999,
+            "volunteerStatus": "Active",
+            "Stickers": {
+                "babySticker": false,
+                "Sticker1": {
+                    "isSticker": true,
+                    "Quantity": 2
+                },
+                "sticker2": {
+                    "isSticker": true,
+                    "quantity": 5
+                },
+                "sticker3": {
+                    "isSticker": true,
+                    "quantity": 3
+                },
+                "sticker4": {
+                    "isSticker": true,
+                    "quantity": 4
+                }
+            }
+        }, 
+        "Profile2": {
+            "Id": 12423452345,
+            "Title": "Mr",
+            "firstName": "Charan",
+            "middleName": "Kumar Raju",
+	        "lastName": "RUDRARAJU",
+            "registrationDate": "14 May 2019",
+            "dateOfBirth": "15 Dec 2001",
+            "Gmail": "lebron23@gmail.com",
+            "password(encrypted)": "kingjames",
+            "isVerfied": true,
+            "Interests": [],
+            "Age": 37,
+            "Gender": "male",
+            "Race": "Chinese",
+            "Nationality": "American",
+            "isStaff": false,
+            "ContactNumber": 999,
+            "volunteerStatus": "Active",
+            "Stickers": {
+                "babySticker": false,
+                "Sticker1": {
+                    "isSticker": true,
+                    "Quantity": 2
+                },
+                "sticker2": {
+                    "isSticker": true,
+                    "quantity": 5
+                },
+                "sticker3": {
+                    "isSticker": true,
+                    "quantity": 3
+                },
+                "sticker4": {
+                    "isSticker": true,
+                    "quantity": 4
+                }
+            }
+        },
+        "Profile3": {
+            "Id": 1242342345,
+            "Title": "Mr",
+            "firstName": "Michael",
+            "middleName": "handsome",
+	        "lastName": "James",
+            "registrationDate": "02 Jan 2010",
+            "dateOfBirth": "21 Nov 1978",
+            "Gmail": "jordanthegoat@gmail.com",
+            "password(encrypted)": "airjordan",
+            "isVerfied": true,
+            "Interests": [],
+            "Age": 58,
+            "Gender": "male",
+            "Race": "Chinese",
+            "Nationality": "American",
+            "isStaff": false,
+            "ContactNumber": 112,
+            "volunteerStatus": "Active",
+            "Stickers": {
+                "babySticker": false,
+                "Sticker1": {
+                    "isSticker": true,
+                    "Quantity": 2
+                },
+                "sticker2": {
+                    "isSticker": true,
+                    "quantity": 5
+                },
+                "sticker3": {
+                    "isSticker": true,
+                    "quantity": 3
+                },
+                "sticker4": {
+                    "isSticker": true,
+                    "quantity": 4
+                }
+            }
+        }
+    }
+}
