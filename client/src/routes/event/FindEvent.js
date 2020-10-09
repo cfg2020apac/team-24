@@ -5,8 +5,9 @@ import { getJobs } from "../../utils/operations";
 import client from "../../apollo";
 import JobPage from "./Event";
 import CurrentUserContext from "../../context/current-user.context";
+import { Image } from "antd";
 
-import events from "../../events";
+import events from "./events";
 
 const { Search } = Input;
 const { Meta } = Card;
@@ -29,7 +30,12 @@ const FindJobPage = () => {
         style={{ display: "block", overflow: "auto", marginBottom: "15px" }}
       >
         <Row gutter={[16, 16]}>
-          <Col span={6}></Col>
+          <Col span={6}>
+            <img
+              src={require("../../assets/img/cfg_event_1.jpg")}
+              style={{ width: "150px", height: "190px", objectFit: "cover" }}
+            />
+          </Col>
           <Col span={18}>
             <p>{job.description}</p>
             <p>

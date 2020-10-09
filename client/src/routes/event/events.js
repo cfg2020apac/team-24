@@ -7,6 +7,7 @@ let events = [
     createdAt: "25th December",
     date: "Saturday, Auguest 1, 2020",
     time: "8am - 5pm",
+    imgUrl: "../../assets/img/cfg_event_1.jpg",
   },
   {
     id: 2,
