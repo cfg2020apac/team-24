@@ -1,113 +1,63 @@
 import React, { useState } from "react";
 
-import { Form, Input, Button, Space, Select } from "antd";
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import { Select } from "antd";
 
-const areas = [
-  { label: "Beijing", value: "Beijing" },
-  { label: "Shanghai", value: "Shanghai" },
-];
-
-const sights = {
-  Beijing: ["Tiananmen", "Great Wall"],
-  Shanghai: ["Oriental Pearl", "The Bund"],
-};
 const { Option } = Select;
-const Languages = () => {
-  const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Received values of form:", values);
-  };
+const children = [];
+for (let i = 10; i < 36; i++) {
+  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
+}
 
-  const handleChange = () => {
-    form.setFieldsValue({ sights: [] });
-  };
+function handleChange(value) {
+  console.log(`selected ${value}`);
+}
 
+const Languages = ({ name, id }) => {
   return (
-    <Form
-      form={form}
-      name="dynamic_form_nest_item"
-      onFinish={onFinish}
-      autoComplete="off"
-    >
-      <Form.List name="users">
-        {(fields, { add, remove }) => {
-          return (
-            <div>
-              {fields.map((field) => (
-                <Space
-                  key={field.key}
-                  style={{ display: "flex", marginBottom: 8 }}
-                  align="start"
-                >
-                  <Form.Item
-                    name="select"
-                    label="Languages"
-                    hasFeedback
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please select a language!",
-                      },
-                    ]}
-                  >
-                    <Select placeholder="Please select a lanuage">
-                      <Option value="English">English</Option>
-                      <Option value="Chinese">Chinese</Option>
-                      <Option value="Russian">Russian</Option>
-                      <Option value="Spanish">Spanish</Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item
-                    name="select"
-                    label="Proficiency"
-                    hasFeedback
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please select your proficiency!",
-                      },
-                    ]}
-                  >
-                    <Select placeholder="Please select a proficiency">
-                      <Option value="Elementary ">Elementary </Option>
-                      <Option value="Intermediate">Intermediate </Option>
-                      <Option value="Fluent">Fluent</Option>
-                      <Option value="Native ">Native </Option>
-                    </Select>
-                  </Form.Item>
-
-                  <MinusCircleOutlined
-                    onClick={() => {
-                      remove(field.name);
-                    }}
-                  />
-                </Space>
-              ))}
-
-              <Form.Item>
-                <Button
-                  type="dashed"
-                  onClick={() => {
-                    add();
-                  }}
-                  block
-                >
-                  <PlusOutlined /> Add field
-                </Button>
-              </Form.Item>
-            </div>
-          );
-        }}
-      </Form.List>
-
-      {/* <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item> */}
-    </Form>
+    <>
+      <Select
+        mode="multiple"
+        style={{ width: "100%" }}
+        placeholder="select one country"
+        defaultValue={["china"]}
+        onChange={handleChange}
+        optionLabelProp="label"
+      >
+        <Option value="china" label="Chinese">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="Chinese">
+              Chinese
+            </span>
+            {/* Chinese */}
+          </div>
+        </Option>
+        <Option value="usa" label="English">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="English">
+              English
+            </span>
+            {/* English */}
+          </div>
+        </Option>
+        <Option value="japan" label="Japanese">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="Japanese">
+              Japanese
+            </span>
+            {/* Japanese */}
+          </div>
+        </Option>
+        <Option value="korean" label="korean">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="korean">
+              korean
+            </span>
+            {/* korean */}
+          </div>
+        </Option>
+      </Select>
+    </>
   );
 };
 

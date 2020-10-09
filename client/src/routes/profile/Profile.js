@@ -11,13 +11,16 @@ import { Row, Col } from "antd";
 import ProfileDetail from "./ProfileDetails";
 import ProfileForm from "./ProfileForm";
 import Languages from "./Languages";
-import Suggestion from "./Suggestions";
+//import json
+import profileJson from "../../assets/json/profile.json";
+//import image
+
 const GREETINGS = {
   noOne: ["", ""],
   me: ["My", "Welcome, "],
   user: ["User", "This is the profile of "],
 };
-
+var profileData = JSON.parse(JSON.stringify(profileJson));
 const ProfilePage = (props) => {
   const [greetings, setGreetings] = useState(GREETINGS.noOne);
   const [userId, setUserId] = useState("");
@@ -36,12 +39,13 @@ const ProfilePage = (props) => {
 
   useEffect(() => {
     console.log(currentUser);
-
+    console.log(profileData.profiles.Profile1);
+    var user = profileData.profiles.Profile1;
     if (currentUser.token && params.id === currentUser.userId) {
       // const client = getClient(currentUser.token)
 
-      setUserId("currentUser.userId");
-      setName("Diab Haque");
+      setUserId(user.Id);
+      setName(user.firstName + user.lastName);
       setEmail("currentUser.uesrId");
       setGreetings(GREETINGS.me);
       setLoading(false);
@@ -93,6 +97,8 @@ const ProfilePage = (props) => {
       ) : (
         <>
           <h1>{greetings[0]} Profile</h1>
+          <img src={require("../../assets/img/sticker_1.png")} />
+
           <Row className="">
             <Col md={8}>
               <ProfileCard name={name} id={userId} />
@@ -116,9 +122,8 @@ const ProfilePage = (props) => {
           </Row>
           <h1>Preference Form</h1>
           <ProfileForm />
+          <h3>Languages</h3>
           <Languages />
-          <h1>Suggested Volunteering Opportunties</h1>
-          <Suggestion />
         </>
       )}
     </>
