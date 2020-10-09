@@ -48,10 +48,42 @@ const Languages = ({ name, id }) => {
             {/* Japanese */}
           </div>
         </Option>
-        <Option value="korean" label="korean">
+        <Option value="Hindi" label="Hindi">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="Hindi">
+              Hindi
+            </span>
+            {/* korean */}
+          </div>
+        </Option>
+        <Option value="Arabic" label="Arabic">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="Arabic">
+              Arabic
+            </span>
+            {/* korean */}
+          </div>
+        </Option>
+        <Option value="Portuguese" label="Portuguese">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="Portuguese">
+              Portuguese
+            </span>
+            {/* korean */}
+          </div>
+        </Option>
+        <Option value="Russian" label="Russian">
           <div className="demo-option-label-item">
             <span role="img" aria-label="korean">
-              korean
+              Russian
+            </span>
+            {/* korean */}
+          </div>
+        </Option>
+        <Option value="German" label="German">
+          <div className="demo-option-label-item">
+            <span role="img" aria-label="German">
+              German
             </span>
             {/* korean */}
           </div>

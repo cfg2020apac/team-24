@@ -36,7 +36,7 @@ const ProfileForm = (user) => {
             mode="multiple"
             style={{ width: "100%" }}
             placeholder="select one or more interest"
-            defaultValue={["china"]}
+            defaultValue={["Reading"]}
             optionLabelProp="label"
           >
             <Option value="Reading" label="Reading">
@@ -47,37 +47,31 @@ const ProfileForm = (user) => {
                 Reading
               </div>
             </Option>
-            <Option value="usa" label="USA">
+            <Option value="uSwimmingsa" label="Swimming">
               <div className="demo-option-label-item">
-                <span role="img" aria-label="USA">
-                  🇺🇸
-                </span>
-                USA (美国)
+                <span role="img" aria-label="Swimming"></span>
+                Swimming
               </div>
             </Option>
-            <Option value="japan" label="Japan">
+            <Option value="Music" label="Music">
               <div className="demo-option-label-item">
-                <span role="img" aria-label="Japan">
-                  🇯🇵
-                </span>
-                Japan (日本)
+                <span role="img" aria-label="Music"></span>
+                Music
               </div>
             </Option>
-            <Option value="korea" label="Korea">
+            <Option value="Movie" label="Movie">
               <div className="demo-option-label-item">
-                <span role="img" aria-label="Korea">
-                  🇰🇷
-                </span>
-                Korea (韩国)
+                <span role="img" aria-label="Movie"></span>
+                Movie
               </div>
             </Option>
           </Select>
         </Form.Item>
-        <Form.Item label="Select">
+        <Form.Item label="Prefered Time">
           <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-            <Select.Option value="demo">Demo</Select.Option>
-            <Select.Option value="demo">Demo</Select.Option>
+            <Select.Option value="Weekdays">Weekdays</Select.Option>
+            <Select.Option value="Weekends">Weekends</Select.Option>
+            <Select.Option value="Anytime">Anytime</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Prefered Location">
