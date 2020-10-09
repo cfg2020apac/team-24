@@ -31,7 +31,7 @@ const AppRouter=()=>{
                     <Route path='/intro' component={IntroPage}/>
                     <Route path='/chatroom' component={ChatRoom}/>
                     <Route path='/profile/:id' component={ProfilePage}/>
-                    <Route path='/posteven' component={PostJobPage}/>
+                    <Route path='/postevent' component={PostJobPage}/>
                     <Route path='/findevents' component={FindJobPage}/>
                     <Route path='/event/:id' component={JobPage}/>
                     <Route path='/questions' component={question1}/>
