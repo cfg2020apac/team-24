@@ -1,23 +1,26 @@
-import React, { useContext } from "react"
-import { NavLink, withRouter } from "react-router-dom"
-import headerStyles from "./header.module.scss"
-import CurrentUserContext from '../../context/current-user.context'
+import React, { useContext } from "react";
+import { NavLink, withRouter } from "react-router-dom";
+import headerStyles from "./header.module.scss";
+import CurrentUserContext from "../../context/current-user.context";
 // import LogOut from "../../routes/authentication/LogOut"
+import { Input, Spin, Card, Col, Row, Pagination } from "antd";
 
-const Header = ({history}) => {
-  const [currentUser, setCurrentUser]=useContext(CurrentUserContext)
+const { Search } = Input;
 
-  const LogOut=()=>{
-      if(currentUser.token){
-          console.log(currentUser, "logging out")
-          setCurrentUser({
-              token: undefined,
-              userId: ""
-          })
-          localStorage.removeItem("user")
-          history.push('/')
-      }
-  }
+const Header = ({ history }) => {
+  const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
+
+  const LogOut = () => {
+    if (currentUser.token) {
+      console.log(currentUser, "logging out");
+      setCurrentUser({
+        token: undefined,
+        userId: "",
+      });
+      localStorage.removeItem("user");
+      history.push("/");
+    }
+  };
 
   return (
     <header className={headerStyles.header}>
@@ -26,6 +29,13 @@ const Header = ({history}) => {
           Blossom World Society
         </NavLink>
       </h1>
+      <Search
+        size="large"
+        placeholder="input search text"
+        onSearch={(value) => console.log(value)}
+        style={({ width: "100%" }, { marginBottom: 20 })}
+        enterButton
+      />
       <nav className={headerStyles.navWhole}>
         <ul className={headerStyles.navList}>
           <li>
@@ -76,44 +86,40 @@ const Header = ({history}) => {
           </li>
         </ul>
         <ul className={headerStyles.navList}>
-        {
-          !currentUser.token?(
+          {!currentUser.token ? (
             <>
               <li>
                 <NavLink
-                    className={headerStyles.navItem}
-                    activeClassName={headerStyles.activeNavItem}
-                    to="/signin"
+                  className={headerStyles.navItem}
+                  activeClassName={headerStyles.activeNavItem}
+                  to="/signin"
                 >
-                    Sign In
+                  Sign In
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                    className={headerStyles.navItem}
-                    activeClassName={headerStyles.activeNavItem}
-                    to="/signup"
+                  className={headerStyles.navItem}
+                  activeClassName={headerStyles.activeNavItem}
+                  to="/signup"
                 >
-                    Sign Up
+                  Sign Up
                 </NavLink>
               </li>
             </>
-          ):(
+          ) : (
             <>
               <li>
                 <NavLink
-                    className={headerStyles.navItem}
-                    activeClassName={headerStyles.activeNavItem}
-                    to={`/profile/${currentUser.userId}`}
+                  className={headerStyles.navItem}
+                  activeClassName={headerStyles.activeNavItem}
+                  to={`/profile/${currentUser.userId}`}
                 >
-                    Profile
+                  Profile
                 </NavLink>
               </li>
               <li>
-                <button 
-                  className={headerStyles.button}
-                  onClick={LogOut}
-                >
+                <button className={headerStyles.button} onClick={LogOut}>
                   Log out
                 </button>
                 {/* <NavLink
@@ -125,14 +131,11 @@ const Header = ({history}) => {
                 </NavLink> */}
               </li>
             </>
-          )
-        }
-          
+          )}
         </ul>
-        
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default withRouter(Header)
+export default withRouter(Header);
