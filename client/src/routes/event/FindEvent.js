@@ -32,7 +32,7 @@ const FindJobPage = () => {
         <Row gutter={[16, 16]}>
           <Col span={6}>
             <img
-              src={require("../../assets/img/cfg_event_1.jpg")}
+              src={job.imgUrl}
               style={{ width: "150px", height: "190px", objectFit: "cover" }}
             />
           </Col>
