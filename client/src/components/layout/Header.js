@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react"
 import { NavLink, withRouter } from "react-router-dom"
 import headerStyles from "./header.module.scss"
@@ -5,32 +6,33 @@ import CurrentUserContext from '../../context/current-user.context'
 
 import firebase,{ firestore, auth } from '../../firebase'
 
-const Header = ({history}) => {
-  const [currentUser, setCurrentUser]=useContext(CurrentUserContext)
+const Header = ({ history }) => {
+  const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
 
-  const LogOut=()=>{
-      if(currentUser.token){
-          auth.signOut()
-          console.log(currentUser, "logging out")
-          setCurrentUser({
-              token: undefined,
-              userId: ""
-          })
-          localStorage.removeItem("user")
-          history.push('/')
-      }
-  }
+  const LogOut = () => {
+    if (currentUser.token) {
+      auth.signOut()
+      console.log(currentUser, "logging out");
+      setCurrentUser({
+        token: undefined,
+        userId: "",
+      });
+      localStorage.removeItem("user");
+      history.push("/");
+    }
+  };
 
   const signInWithGoogle = () => {
 
     const data = {
       email: 'diabhaque@gmail.com',
       password: '12345'
-  }
+    }
     const userDetails={
       token: data.password,
       userId: data.email
     }
+    
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
     setCurrentUser(userDetails)
@@ -94,8 +96,7 @@ const Header = ({history}) => {
           </li>
         </ul>
         <ul className={headerStyles.navList}>
-        {
-          !currentUser.token?(
+          {!currentUser.token ? (
             <>
               <li>
                 <button 
@@ -104,33 +105,31 @@ const Header = ({history}) => {
                 >
                   Sign In
                 </button>
+
               </li>
               <li>
                 <NavLink
-                    className={headerStyles.navItem}
-                    activeClassName={headerStyles.activeNavItem}
-                    to="/signup"
+                  className={headerStyles.navItem}
+                  activeClassName={headerStyles.activeNavItem}
+                  to="/signup"
                 >
-                    Sign Up
+                  Sign Up
                 </NavLink>
               </li>
             </>
-          ):(
+          ) : (
             <>
               <li>
                 <NavLink
-                    className={headerStyles.navItem}
-                    activeClassName={headerStyles.activeNavItem}
-                    to={`/profile/${currentUser.userId}`}
+                  className={headerStyles.navItem}
+                  activeClassName={headerStyles.activeNavItem}
+                  to={`/profile/${currentUser.userId}`}
                 >
-                    Profile
+                  Profile
                 </NavLink>
               </li>
               <li>
-                <button 
-                  className={headerStyles.button}
-                  onClick={LogOut}
-                >
+                <button className={headerStyles.button} onClick={LogOut}>
                   Log out
                 </button>
                 {/* <NavLink
@@ -142,14 +141,11 @@ const Header = ({history}) => {
                 </NavLink> */}
               </li>
             </>
-          )
-        }
-          
+          )}
         </ul>
-        
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default withRouter(Header)
+export default withRouter(Header);
