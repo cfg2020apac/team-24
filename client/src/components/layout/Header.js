@@ -46,13 +46,13 @@ const Header = ({ history }) => {
           Blossom World Society
         </NavLink>
       </h1>
-      <Search
+      {/* <Search
         size="large"
         placeholder="search for the event you want"
         onSearch={(value) => console.log(value)}
         style={{ width: "100%" }}
         enterButton
-      />
+      /> */}
       <nav className={headerStyles.navWhole}>
         <ul className={headerStyles.navList}>
           <li>
