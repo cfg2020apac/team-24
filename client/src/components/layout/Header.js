@@ -23,7 +23,8 @@ const Header = ({ history }) => {
     }
   };
 
-  const signInWithGoogle = () => {
+  const signInWithGoogle = async () => {
+
     const data = {
       email: "diabhaque@gmail.com",
       password: "12345",
@@ -34,9 +35,9 @@ const Header = ({ history }) => {
     };
 
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-    setCurrentUser(userDetails);
-    history.push(`/profile/${data.email}`);
+    await auth.signInWithPopup(provider);
+    setCurrentUser(userDetails)
+    history.push(`/profile/${data.email}`)
   };
 
   return (

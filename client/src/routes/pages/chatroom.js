@@ -1,14 +1,16 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, useContext} from 'react'
 import { Link} from 'react-router-dom'
 import firebase,{ firestore, auth } from '../../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Card, Form, Input, Button } from 'antd';
 import './chatroom.css'
+import CurrentUserContext from '../../context/current-user.context'
 
 const ChatRoom = () => {
 
     const [user] = useAuthState(auth);
+    const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
 
     return (
         <>
@@ -17,7 +19,7 @@ const ChatRoom = () => {
             <br/>
 
             <section>
-                {user ? <ChatRoomMain/> : <p><Link to='/signin'>Sign In</Link> to use the ChatRoom</p>}
+                {currentUser.token ? <ChatRoomMain/> : <p><Link to='/signin'>Sign In</Link> to use the ChatRoom</p>}
             </section>
             
         </>
@@ -98,7 +100,7 @@ function ChatRoomMain() {
             ]}
             style ={{width: '80%'}}
         >
-            <Input style ={{ height: '5vh', border: '1px solid black'}}/>
+            <Input style ={{ height: '5vh', border: '1px solid black'}} placeholder="Try saying hi!"/>
         </Form.Item>
 
         <Button type="primary" htmlType ='submit' style ={{width: '20%', height: '5vh'}}>Send</Button>
@@ -117,7 +119,7 @@ function ChatRoomMain() {
     return (<>
       <div className={`message ${messageClass}`}>
         <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-        <p>{text}</p>
+        <p className = 'p'>{text}</p>
       </div>
     </>)
   }

@@ -94,6 +94,7 @@ const FindJobPage = () => {
                             </>
                         ):(
                             <p>Please <Link to='/signin'>sign in</Link> to look for events</p>
+
                         )
                     }
                     </div>
