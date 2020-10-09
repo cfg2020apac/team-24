@@ -17,7 +17,7 @@
             "Race": "Black",
             "Nationality": "American",
             "isStaff": false,
-            "ContactNumber": 999,
+            "ContactNumber": 12345678,
             "volunteerStatus": "Active",
             "Stickers": {
                 "babySticker": false,
