@@ -24,7 +24,6 @@ const Header = ({ history }) => {
   };
 
   const signInWithGoogle = async () => {
-
     const data = {
       email: "diabhaque@gmail.com",
       password: "12345",
@@ -36,8 +35,8 @@ const Header = ({ history }) => {
 
     const provider = new firebase.auth.GoogleAuthProvider();
     await auth.signInWithPopup(provider);
-    setCurrentUser(userDetails)
-    history.push(`/profile/${data.email}`)
+    setCurrentUser(userDetails);
+    history.push(`/profile/${data.email}`);
   };
 
   return (
@@ -63,7 +62,16 @@ const Header = ({ history }) => {
               to="/"
               exact={true}
             >
-              Home
+              Home (Deprecated?)
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={headerStyles.navItem}
+              activeClassName={headerStyles.activeNavItem}
+              to="/findjob"
+            >
+              Feed
             </NavLink>
           </li>
           <li>
@@ -82,15 +90,6 @@ const Header = ({ history }) => {
               to="/chatroom"
             >
               Chatroom
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={headerStyles.navItem}
-              activeClassName={headerStyles.activeNavItem}
-              to="/findjob"
-            >
-              Feed
             </NavLink>
           </li>
           <li>
