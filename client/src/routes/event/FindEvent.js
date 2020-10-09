@@ -87,8 +87,8 @@ const FindJobPage = () => {
 
   return (
     <div>
-      <h1>Feed</h1>
-      <br />
+      {/* <h1>Feed</h1>
+      <br /> */}
       <Search
         size="large"
         placeholder="input search text"

@@ -71,7 +71,7 @@ const Header = ({ history }) => {
               activeClassName={headerStyles.activeNavItem}
               to="/findjob"
             >
-              Feed
+              Events
             </NavLink>
           </li>
           <li>
