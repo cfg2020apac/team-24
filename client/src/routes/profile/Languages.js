@@ -12,7 +12,7 @@ const sights = {
   Beijing: ["Tiananmen", "Great Wall"],
   Shanghai: ["Oriental Pearl", "The Bund"],
 };
-
+const { Option } = Select;
 const Languages = () => {
   const [form] = Form.useForm();
 
@@ -31,53 +31,58 @@ const Languages = () => {
       onFinish={onFinish}
       autoComplete="off"
     >
-      <Form.List name="sights">
+      <Form.List name="users">
         {(fields, { add, remove }) => {
           return (
-            <>
+            <div>
               {fields.map((field) => (
-                <Space key={field.key} align="start">
+                <Space
+                  key={field.key}
+                  style={{ display: "flex", marginBottom: 8 }}
+                  align="start"
+                >
                   <Form.Item
-                    noStyle
-                    shouldUpdate={(prevValues, curValues) =>
-                      prevValues.area !== curValues.area ||
-                      prevValues.sights !== curValues.sights
-                    }
+                    name="select"
+                    label="Languages"
+                    hasFeedback
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please select a language!",
+                      },
+                    ]}
                   >
-                    {() => (
-                      <Form.Item
-                        {...field}
-                        label="Sight"
-                        name={[field.name, "sight"]}
-                        fieldKey={[field.fieldKey, "sight"]}
-                        rules={[{ required: true, message: "Missing sight" }]}
-                      >
-                        <Select
-                          disabled={!form.getFieldValue("area")}
-                          style={{ width: 130 }}
-                        >
-                          {(sights[form.getFieldValue("area")] || []).map(
-                            (item) => (
-                              <Select.Option key={item} value={item}>
-                                {item}
-                              </Select.Option>
-                            )
-                          )}
-                        </Select>
-                      </Form.Item>
-                    )}
+                    <Select placeholder="Please select a lanuage">
+                      <Option value="English">English</Option>
+                      <Option value="Chinese">Chinese</Option>
+                      <Option value="Russian">Russian</Option>
+                      <Option value="Spanish">Spanish</Option>
+                    </Select>
                   </Form.Item>
                   <Form.Item
-                    {...field}
-                    label="Price"
-                    name={[field.name, "price"]}
-                    fieldKey={[field.fieldKey, "price"]}
-                    rules={[{ required: true, message: "Missing price" }]}
+                    name="select"
+                    label="Proficiency"
+                    hasFeedback
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please select your proficiency!",
+                      },
+                    ]}
                   >
-                    <Input />
+                    <Select placeholder="Please select a proficiency">
+                      <Option value="Elementary ">Elementary </Option>
+                      <Option value="Intermediate">Intermediate </Option>
+                      <Option value="Fluent">Fluent</Option>
+                      <Option value="Native ">Native </Option>
+                    </Select>
                   </Form.Item>
 
-                  <MinusCircleOutlined onClick={() => remove(field.name)} />
+                  <MinusCircleOutlined
+                    onClick={() => {
+                      remove(field.name);
+                    }}
+                  />
                 </Space>
               ))}
 
@@ -89,19 +94,19 @@ const Languages = () => {
                   }}
                   block
                 >
-                  <PlusOutlined /> Add sights
+                  <PlusOutlined /> Add field
                 </Button>
               </Form.Item>
-            </>
+            </div>
           );
         }}
       </Form.List>
 
-      <Form.Item>
+      {/* <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
-      </Form.Item>
+      </Form.Item> */}
     </Form>
   );
 };

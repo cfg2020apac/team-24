@@ -11,6 +11,7 @@ import { Row, Col } from "antd";
 import ProfileDetail from "./ProfileDetails";
 import ProfileForm from "./ProfileForm";
 import Languages from "./Languages";
+import Suggestion from "./Suggestions";
 const GREETINGS = {
   noOne: ["", ""],
   me: ["My", "Welcome, "],
@@ -116,6 +117,8 @@ const ProfilePage = (props) => {
           <h1>Preference Form</h1>
           <ProfileForm />
           <Languages />
+          <h1>Suggested Volunteering Opportunties</h1>
+          <Suggestion />
         </>
       )}
     </>
