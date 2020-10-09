@@ -1,0 +1,49 @@
+<tr>
+  <td><img src={require("./cfg_event_1.jpg")}/></td>
+  <td><table>
+    <tr>Event name: {json.events.event1.name}</tr><br/>
+    <tr>Event description:{json.events.event1.description}</tr><br/>
+  </table></td>
+  <td><table>
+    <tr>
+      <td><img src={require("./sticker_1.png")}/>Sincerity</td>
+      <td><img src={require("./sticker_2.png")}/>Gratitude</td>
+      <td><img src={require("./sticker_3.png")}/>Service</td>
+      <td><img src={require("./sticker_4.png")}/>Kindness</td>
+    </tr>
+  </td></table>
+  <td><img src={require("./cfg_event_2.jpg")}/></td>
+  <td><table>
+    <tr>Event name: {json.events.event2.name}</tr><br/>
+    <tr>Event description:{json.events.event2.description} </tr><br/>
+  </table></td>
+  <td><table>
+    <tr>
+      <td><img src={require("./sticker_2.png")}/>Gratitude</td>
+      <td><img src={require("./sticker_4.png")}/>Kindness</td>
+    </tr>
+  </td></table>
+  <td><img src={require("./cfg_event_3.jpg")}/></td>
+  <td><table>
+    <tr>Event name:{json.events.event3.name}</tr><br/>
+    <tr>Event description:{json.events.event3.description}</tr><br/>
+  </table></td>
+  <td><table>
+    <tr>
+      <td><img src={require("./sticker_1.png")}/>Sincerity</td>
+      <td><img src={require("./sticker_3.png")}/>Service</td>
+    </tr>
+  </td></table>
+  <td><img src={require("./cfg_event_4.jpg")}/></td>
+  <td><table>
+    <tr>Event name:{json.events.event4.name}</tr><br/>
+    <tr>Event description:{json.events.event4.description}</tr><br/>
+  </table></td>
+  <td><table>
+    <tr>
+      <td><img src={require("./sticker_1.png")}/>Sincerity</td>
+      <td><img src={require("./sticker_3.png")}/>Service</td>
+      <td><img src={require("./sticker_4.png")}/>Kindness</td>
+    </tr>
+  </td></table>
+</tr>

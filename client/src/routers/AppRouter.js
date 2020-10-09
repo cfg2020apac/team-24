@@ -18,6 +18,7 @@ import JobPage from '../routes/event/Event'
 import NotFoundPage from '../routes/pages/notFound'
 import CurrentUserContext from '../context/current-user.context'
 import 'antd/dist/antd.css'
+import question1 from '../routes/questions/question1';
 
 
 const AppRouter=()=>{
@@ -33,6 +34,7 @@ const AppRouter=()=>{
                     <Route path='/postjob' component={PostJobPage}/>
                     <Route path='/findjob' component={FindJobPage}/>
                     <Route path='/job/:id' component={JobPage}/>
+                    <Route path='/questions' component={question1}/>
                     <Route 
                         path='/signin' 
                         render={()=>
