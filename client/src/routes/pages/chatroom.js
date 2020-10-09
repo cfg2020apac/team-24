@@ -1,12 +1,10 @@
 import React, {useRef, useState} from 'react'
 import { Link} from 'react-router-dom'
-
 import firebase,{ firestore, auth } from '../../firebase'
-
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-
-import { Form, Input, Button } from 'antd';
+import { Card, Form, Input, Button } from 'antd';
+import './chatroom.css'
 
 const ChatRoom = () => {
 
@@ -15,6 +13,8 @@ const ChatRoom = () => {
     return (
         <>
             <h1>Site Wide Chatrooom</h1>
+
+            <br/>
 
             <section>
                 {user ? <ChatRoomMain/> : <p><Link to='/signin'>Sign In</Link> to use the ChatRoom</p>}
@@ -32,8 +32,30 @@ function ChatRoomMain() {
     const [messages] = useCollectionData(query, { idField: 'id' });
   
     const [formValue, setFormValue] = useState('');
+
+    const [form] = Form.useForm();
   
-  
+    
+    const onFinish = async (values)=>{
+        console.log('success', values)
+        const { uid, photoURL } = auth.currentUser;
+        //   console.log(auth.currentUser)
+
+        form.resetFields();
+    
+        await messagesRef.add({
+            text: values.message,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            uid,
+            photoURL
+        })
+        dummy.current.scrollIntoView({ behavior: 'smooth' });
+
+    }
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
+
     const sendMessage = async (e) => {
       e.preventDefault();
   
@@ -51,26 +73,39 @@ function ChatRoomMain() {
       dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
   
-    return (<>
-      <main>
-  
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-  
-        <span ref={dummy}></span>
-  
-      </main>
-  
-      <Form onSubmit={sendMessage}>
-  
-        <Input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Say something nice!" />
+    return (
+    <div id='chatContainer'>
 
-        <br/>
-        <br/>
+        <Card
+            style={{width: '80%',border: '1px solid black',height: '50vh', overflowY: 'scroll', margin: 'auto', marginBottom: '10px'}} 
+            headStyle={{ height: '0vh'}}
+            bodyStyle={{padding: "10px"}}
+        > 
+            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
   
-        <Button type="submit" disabled={!formValue}>Send</Button>
+            <span ref={dummy}></span>
+        </Card>
+  
+      <Form onFinish={onFinish} onFinishFailed= {onFinishFailed} form ={form} style ={{display: 'flex', flexDirection:'row', width:'80%', margin:'auto', height: '5vh'}}>
+  
+        <Form.Item
+            name="message"
+            rules={[
+            {
+                required: true,
+                message: 'Try saying hi!',
+            },
+            ]}
+            style ={{width: '80%'}}
+        >
+            <Input style ={{ height: '5vh', border: '1px solid black'}}/>
+        </Form.Item>
+
+        <Button type="primary" htmlType ='submit' style ={{width: '20%', height: '5vh'}}>Send</Button>
   
       </Form>
-    </>)
+    </div>
+    )
   }
 
   function ChatMessage(props) {
