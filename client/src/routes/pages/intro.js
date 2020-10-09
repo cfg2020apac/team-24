@@ -32,12 +32,19 @@ const IntroPage = () => {
                       <tbody id ="timeline">
                       <tr>
                         <td>Upcoming</td>
-                        <td><table>
+                        <td><Card title = {test.name}/>
+                        <p>Description: {test.description}</p>
+                        <p>Date: {test.date}</p><br/>
+                        <p>Time: {test.time}</p><br/>
+                        <tr>Venue: {test.venue}</tr><br/>
+                        <tr>Min. Age: {test.age.max}</tr><br/>
+                        <tr>Max. Age: {test.age.min}</tr><br/>
+                        <tr>Deadline: {test.deadline}</tr><br/>
+                        <tr>Language: {test.language}</tr><table>
                           <tr>
                             <td><img src={require("./cfg_event_1.jpg")}/></td>
                             <td>
                               <table>
-                                <tr>Name: {test.name}</tr><br/>
                                 <tr>Description: {test.description}</tr>
                                 <tr>Date: {test.date}</tr><br/>
                                 <tr>Time: {test.time}</tr><br/>
