@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Radio, Select, Cascader, Switch } from "antd";
 const { Option } = Select;
+
 const ProfileForm = (user) => {
   const [componentSize, setComponentSize] = useState("default");
 
@@ -74,6 +75,12 @@ const ProfileForm = (user) => {
             <Select.Option value="Anytime">Anytime</Select.Option>
           </Select>
         </Form.Item>
+        <Form.Item label="Indoor/Outdoor">
+          <Select>
+            <Select.Option value="Weekdays">Indoor</Select.Option>
+            <Select.Option value="Outdoor">Outdoor</Select.Option>
+          </Select>
+        </Form.Item>
         <Form.Item label="Prefered Location">
           <Cascader
             options={[
@@ -105,6 +112,9 @@ const ProfileForm = (user) => {
               },
             ]}
           />
+        </Form.Item>
+        <Form.Item name={["user", "introduction"]} label="Past Experience">
+          <Input.TextArea />
         </Form.Item>
         <Form.Item label="Auto Matching">
           <Switch />
