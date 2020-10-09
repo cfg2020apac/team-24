@@ -93,7 +93,7 @@ const PostJobPage = ( { history } ) => {
 
     return (
         <>
-            <h1>Post a Job</h1>
+            <h1>Share an Event</h1>
             <br/>
             {
                 !currentUser.token?(

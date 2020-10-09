@@ -7,7 +7,6 @@ import CurrentUserContext from '../../context/current-user.context'
 import { useMutation} from '@apollo/react-hooks'
 import users from '../../users'
 
-
 const layout = {
   labelCol: {
     span: 6,
@@ -55,6 +54,8 @@ const SignIn = (props) => {
 
     setLoading(false)
     setCurrentUser(userDetails)
+
+    localStorage.setItem('user', JSON.stringify(userDetails))
 
     history.push(`/profile/${data.email}`)
     
