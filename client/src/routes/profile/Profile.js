@@ -102,15 +102,27 @@ const ProfilePage = (props) => {
               <ProfileCard name={name} id={userId} />
             </Col>
             <Col md={16} style={({ display: "flex" }, { marginTop: 30 })}>
-              <div style={{ width: "100%" }}>
+              <div className="stickers-wrap" style={{ width: "100%" }}>
                 <div>
-                  <img src={require("../../assets/img/sticker_1.png")} />
+                  <img
+                    className="stickers"
+                    src={require("../../assets/img/sticker_1.png")}
+                  />
                   <span>{user.Stickers.Sticker1.Quantity}</span>
-                  <img src={require("../../assets/img/sticker_2.png")} />
+                  <img
+                    className="stickers"
+                    src={require("../../assets/img/sticker_2.png")}
+                  />
                   <span>{user.Stickers.sticker2.quantity}</span>
-                  <img src={require("../../assets/img/sticker_3.png")} />
+                  <img
+                    className="stickers"
+                    src={require("../../assets/img/sticker_3.png")}
+                  />
                   <span>{user.Stickers.sticker3.quantity}</span>
-                  <img src={require("../../assets/img/sticker_4.png")} />
+                  <img
+                    className="stickers"
+                    src={require("../../assets/img/sticker_4.png")}
+                  />
                   <span>{user.Stickers.sticker4.quantity}</span>
                 </div>
                 <progress id="file" value="40" max="100" className="level-bar">
@@ -132,6 +144,12 @@ const ProfilePage = (props) => {
           <ProfileForm user={user} />
           <h3>Languages</h3>
           <Languages />
+          <br />
+          <br />
+          <h4>
+            To let us know you better. Please go &nbsp;
+            <Link to="/questions">here</Link> to take the suvery
+          </h4>
         </>
       )}
     </>

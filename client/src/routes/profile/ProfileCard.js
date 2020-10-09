@@ -18,17 +18,28 @@ const ProfileCard = ({ name, id }) => {
         style={{ width: 200 }}
         cover={
           !imgSrc ? (
+            // <img
+            //   alt="Profile Picture"
+            //   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            //   onClick={() => setVisible(true)}
+            // />
             <Avatar
               shape="square"
               size={200}
-              icon={<UserOutlined />}
+              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
               onClick={() => setVisible(true)}
             />
           ) : (
+            // <Avatar
+            //   shape="square"
+            //   size={200}
+            //   icon={<UserOutlined />}
+            //   onClick={() => setVisible(true)}
+            // />
             // <img
-            // alt='Profile Picture'
-            // src=""
-            // onClick={()=>setVisible(true)}
+            //   alt="Profile Picture"
+            //   src={require("../../assets/img/profile_pic.jpeg")}
+            //   onClick={() => setVisible(true)}
             // />
             <Avatar
               shape="square"
