@@ -89,15 +89,15 @@ const FindJobPage = () => {
     <div>
       {/* <h1>Feed</h1>
       <br /> */}
-      <Search
+      {/* <Search
         size="large"
         placeholder="input search text"
         onSearch={(value) => console.log(value)}
         style={{ width: "50%" }}
         enterButton
-      />
-      <br />
-      <br />
+      /> */}
+      {/* <br />
+      <br /> */}
       {loading ? (
         <Spin />
       ) : (
