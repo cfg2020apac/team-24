@@ -70,7 +70,7 @@ const FindJobPage = () => {
 
     return (
         <div>
-            <h1>Find Events</h1>
+            <h1>Feed</h1>
             <br/>
             <Search
                 size='large'

@@ -72,7 +72,7 @@ const Header = ({ history }) => {
               activeClassName={headerStyles.activeNavItem}
               to="/intro"
             >
-              Getting Started
+              Timeline
             </NavLink>
           </li>
           <li>
@@ -90,7 +90,7 @@ const Header = ({ history }) => {
               activeClassName={headerStyles.activeNavItem}
               to="/findjob"
             >
-              Find Events
+              Feed
             </NavLink>
           </li>
           <li>
