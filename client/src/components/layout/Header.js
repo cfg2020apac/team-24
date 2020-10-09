@@ -1,17 +1,18 @@
+import React, { useContext } from "react";
+import { NavLink, withRouter } from "react-router-dom";
+import headerStyles from "./header.module.scss";
+import CurrentUserContext from "../../context/current-user.context";
 
-import React, { useContext } from "react"
-import { NavLink, withRouter } from "react-router-dom"
-import headerStyles from "./header.module.scss"
-import CurrentUserContext from '../../context/current-user.context'
-
-import firebase,{ firestore, auth } from '../../firebase'
+import firebase, { firestore, auth } from "../../firebase";
+import { Input, Spin } from "antd";
+const { Search } = Input;
 
 const Header = ({ history }) => {
   const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
 
   const LogOut = () => {
     if (currentUser.token) {
-      auth.signOut()
+      auth.signOut();
       console.log(currentUser, "logging out");
       setCurrentUser({
         token: undefined,
@@ -23,21 +24,20 @@ const Header = ({ history }) => {
   };
 
   const signInWithGoogle = () => {
-
     const data = {
-      email: 'diabhaque@gmail.com',
-      password: '12345'
-    }
-    const userDetails={
+      email: "diabhaque@gmail.com",
+      password: "12345",
+    };
+    const userDetails = {
       token: data.password,
-      userId: data.email
-    }
-    
+      userId: data.email,
+    };
+
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
-    setCurrentUser(userDetails)
-    history.push(`/profile/${data.email}`)
-  }
+    setCurrentUser(userDetails);
+    history.push(`/profile/${data.email}`);
+  };
 
   return (
     <header className={headerStyles.header}>
@@ -46,6 +46,13 @@ const Header = ({ history }) => {
           Blossom World Society
         </NavLink>
       </h1>
+      <Search
+        size="large"
+        placeholder="search for the event you want"
+        onSearch={(value) => console.log(value)}
+        style={{ width: "100%" }}
+        enterButton
+      />
       <nav className={headerStyles.navWhole}>
         <ul className={headerStyles.navList}>
           <li>
@@ -99,13 +106,12 @@ const Header = ({ history }) => {
           {!currentUser.token ? (
             <>
               <li>
-                <button 
+                <button
                   className={headerStyles.button}
                   onClick={signInWithGoogle}
                 >
                   Sign In
                 </button>
-
               </li>
               <li>
                 <NavLink
