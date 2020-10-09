@@ -5,7 +5,7 @@ import CurrentUserContext from "../../context/current-user.context";
 
 import firebase, { firestore, auth } from "../../firebase";
 import { Input, Spin } from "antd";
-const { Search } = Input;
+
 
 const Header = ({ history }) => {
   const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
@@ -46,13 +46,7 @@ const Header = ({ history }) => {
           Blossom World Society
         </NavLink>
       </h1>
-      <Search
-        size="large"
-        placeholder="search for the event you want"
-        onSearch={(value) => console.log(value)}
-        style={{ width: "100%" }}
-        enterButton
-      />
+      
       <nav className={headerStyles.navWhole}>
         <ul className={headerStyles.navList}>
           <li>

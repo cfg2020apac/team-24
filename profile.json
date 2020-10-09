@@ -79,7 +79,7 @@
             }
         },
         "Profile3": {
-            "Id": 1242342345,
+            "Id": 1924242445,
             "Title": "Mr",
             "firstName": "Michael",
             "middleName": "handsome",
@@ -110,6 +110,45 @@
                 "sticker3": {
                     "isSticker": true,
                     "quantity": 3
+                },
+                "sticker4": {
+                    "isSticker": true,
+                    "quantity": 4
+                }
+            }
+        },
+        "Profile4": {
+            "Id": 5432433453,
+            "Title": "Mr",
+            "firstName": "Uzumaki",
+            "middleName": "Ramen",
+	        "lastName": "Naruto",
+            "registrationDate": "22 Mar 2007",
+            "dateOfBirth": "19 Jun 1999",
+            "Gmail": "rashengan@gmail.com",
+            "password(encrypted)": "rashengan",
+            "isVerfied": true,
+            "Interests": [],
+            "Age": 19,
+            "Gender": "male",
+            "Race": "Chinese",
+            "Nationality": "American",
+            "isStaff": false,
+            "ContactNumber": 89999234234,
+            "volunteerStatus": "Active",
+            "Stickers": {
+                "babySticker": false,
+                "Sticker1": {
+                    "isSticker": true,
+                    "Quantity": 10
+                },
+                "sticker2": {
+                    "isSticker": true,
+                    "quantity": 15
+                },
+                "sticker3": {
+                    "isSticker": true,
+                    "quantity": 30
                 },
                 "sticker4": {
                     "isSticker": true,
