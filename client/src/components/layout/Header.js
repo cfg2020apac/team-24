@@ -42,7 +42,7 @@ const Header = ({history}) => {
             <NavLink
               className={headerStyles.navItem}
               activeClassName={headerStyles.activeNavItem}
-              to="/about"
+              to="/intro"
             >
               Getting Started
             </NavLink>
@@ -51,7 +51,7 @@ const Header = ({history}) => {
             <NavLink
               className={headerStyles.navItem}
               activeClassName={headerStyles.activeNavItem}
-              to="/contact"
+              to="/chatroom"
             >
               Chatroom
             </NavLink>

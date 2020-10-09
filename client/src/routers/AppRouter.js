@@ -6,8 +6,8 @@ import SignIn from '../routes/authentication/SignIn'
 import SignUp from '../routes/authentication/SignUp'
 
 import HomePage from '../routes/pages/index'
-import AboutPage from '../routes/pages/about'
-import ContactPage from '../routes/pages/contact'
+import IntroPage from '../routes/pages/intro'
+import ChatRoom from '../routes/pages/chatroom'
 
 import ProfilePage from '../routes/profile/Profile'
 
@@ -27,8 +27,8 @@ const AppRouter=()=>{
             <Layout>
                 <Switch>
                     <Route path='/' component={HomePage} exact={true}/>
-                    <Route path='/about' component={AboutPage}/>
-                    <Route path='/contact' component={ContactPage}/>
+                    <Route path='/intro' component={IntroPage}/>
+                    <Route path='/chatroom' component={ChatRoom}/>
                     <Route path='/profile/:id' component={ProfilePage}/>
                     <Route path='/postjob' component={PostJobPage}/>
                     <Route path='/findjob' component={FindJobPage}/>

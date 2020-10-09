@@ -43,6 +43,9 @@ const SignIn = (props) => {
         password: values.password
     }
 
+    // const data = users.filter(user => user.email == values.email)
+    // console.log(data)
+
     const userDetails={
       token: data.password,
       userId: data.email

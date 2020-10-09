@@ -33,9 +33,9 @@ const ProfilePage = (props) => {
         if (currentUser.token && params.id===currentUser.userId){
             // const client = getClient(currentUser.token)
 
-            setUserId("data.me.id")
-            setName("data.me.name")
-            setEmail("data.me.email")
+            setUserId("currentUser.userId")
+            setName("Diab Haque")
+            setEmail("currentUser.uesrId")
             setGreetings(GREETINGS.me)
             setLoading(false)
             
