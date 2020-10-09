@@ -2,7 +2,10 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CurrentUserContext from '../../context/current-user.context'
 import { Input,Spin } from 'antd'
+import {data} from './events.json'
 const { Search } = Input
+
+var json = JSON.parse(data);
 
 const IntroPage = () => {
     const [loading, setLoading]= useState(true)
@@ -29,7 +32,7 @@ const IntroPage = () => {
                         <td>Upcoming</td>
                         <td><table>
                           <tr>
-                            <td>Event Image</td>
+                            <td><img src={"./A.png"}/></td>
                             <td>
                               <table>
                                 <tr>ID: 9843482452634756</tr><br/>
