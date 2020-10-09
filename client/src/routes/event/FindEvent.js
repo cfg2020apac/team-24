@@ -26,7 +26,7 @@ const FindJobPage = () => {
       <Card
         title={job.title}
         hoverable
-        style={{ height: 175, overflow: "scroll", marginBottom: "15px" }}
+        style={{ display: "block", overflow: "auto", marginBottom: "15px" }}
       >
         <p>{job.description}</p>
         <p>Event on: {job.date}</p>
