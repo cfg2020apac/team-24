@@ -53,10 +53,54 @@ const IntroPage = () => {
                         <td></td>
                       </tr>
                       <tr>
-                        <td><script>document.write(new Data().getFullYear())</script></td>
+                        <td>Upcoming</td>
+                        <td><table>
+                          <tr>  //First event
+                            <td></td> //Event image here
+                            <td>
+                              <table> //Event details
+                                <tr></tr>
+                                <tr></tr>
+                              </table>
+                              <table> //features
+                                <tr>
+                                  <td><input type="checkbox" onclick="return false;"/>Sincerity</td>
+                                  <td><input type="checkbox" onclick="return false;"/>Service</td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox" onclick="return false;"/>Gratitude</td>
+                                  <td><input type="checkbox" onclick="return false;"/>Kindness</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table></td>
+                        <td></td>
                       </tr>
                       <tr>
-                        <td><script>document.write(new Data().getFullYear()-1)</script></td>
+                        <td>Upcoming</td>
+                        <td><table>
+                          <tr>  //First event
+                            <td></td> //Event image here
+                            <td>
+                              <table> //Event details
+                                <tr></tr>
+                                <tr></tr>
+                              </table>
+                              <table> //features
+                                <tr>
+                                  <td><input type="checkbox" onclick="return false;"/>Sincerity</td>
+                                  <td><input type="checkbox" onclick="return false;"/>Service</td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox" onclick="return false;"/>Gratitude</td>
+                                  <td><input type="checkbox" onclick="return false;"/>Kindness</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table></td>
+                        <td></td>
                       </tr>
                       </tbody>
                       </table></>
