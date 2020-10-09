@@ -1,0 +1,88 @@
+{
+    "events": {
+        "event1": {
+            "id": 9843482452634756,
+            "name": "Standards For Being A Good Student and Child 弟子规 @Tohyi",
+            "description": "Year 2020 is an eventful year. The Covid-19 pandemic let us see the positive (selflessness) and negative (self-centeredness) traits of human nature. Seeing the importance of cultivating the positive traits of our next generation, we should start them from young by sowing good seeds in their minds and hearts, and continue to irrigate and fertilise them to let them thrive. As the saying goes: it takes 10 years to cultivate a tree, 100 years to nurture a human being.Therefore, Joyous Learning Grove develops a series of moral education courses for children from 4 to 12 years old. These children will attend classes every week to learn about moral values such as filial piety, friendship, and helping others and implement them in their daily lives.The commencement of the course for the new semester is about to begin, we encourage all the parents to register your child for the course promptly!",
+            "date": "Oct 31 2020",
+            "time": "02:30pm - 05:00pm",
+            "venue": "Blossom World Society (Main Office) 9 Toh Yi Drive Singapore 590009",
+            "age": {
+                "min": 4,
+                "max": 6
+            },
+            "deadline": "Oct 15 2020",
+            "language": "Mandarin",
+            "stickers": {
+                "isSincerity": true,
+                "isGratitude": true,
+                "isService": true,
+                "isKindness": true
+            },
+            "imgUrl": ""
+        },
+        "event2": {
+            "id": 7882339934898923,
+            "name": "Happy Formula 快乐秘方 @ Tohyi",
+            "description": "Year 2020 is an eventful year. The Covid-19 pandemic let us see the positive (selflessness) and negative (self-centeredness) traits of human nature. Seeing the importance of cultivating the positive traits of our next generation, we should start them from young by sowing good seeds in their minds and hearts, and continue to irrigate and fertilise them to let them thrive. As the saying goes: it takes 10 years to cultivate a tree, 100 years to nurture a human being.Therefore, Joyous Learning Grove develops a series of moral education courses for children from 4 to 12 years old. These children will attend classes every week to learn about moral values such as filial piety, friendship, and helping others and implement them in their daily lives.The commencement of the course for the new semester is about to begin, we encourage all the parents to register your child for the course promptly!",
+            "date": "Oct 31 2020",
+            "time": "10:30am - 11:30am",
+            "venue": "Blossom World Society (Main Office) 9 Toh Yi Drive Singapore 590009",
+            "age": {
+                "min": 7,
+                "max": 9
+            },
+            "deadline": "Oct 15 2020",
+            "language": "Mandarin",
+            "stickers": {
+                "isSincerity": false,
+                "isGratitude": true,
+                "isService": false,
+                "isKindness": true
+            },
+            "imgUrl": ""
+        },
+        "event3": {
+            "id": 7887633454823423,
+            "name": "Discovering Treasure Through Stories 读故事掘宝 @ Tohyi",
+            "description": "Year 2020 is an eventful year. The Covid-19 pandemic let us see the positive (selflessness) and negative (self-centeredness) traits of human nature. Seeing the importance of cultivating the positive traits of our next generation, we should start them from young by sowing good seeds in their minds and hearts, and continue to irrigate and fertilise them to let them thrive. As the saying goes: it takes 10 years to cultivate a tree, 100 years to nurture a human being.Therefore, Joyous Learning Grove develops a series of moral education courses for children from 4 to 12 years old. These children will attend classes every week to learn about moral values such as filial piety, friendship, and helping others and implement them in their daily lives.The commencement of the course for the new semester is about to begin, we encourage all the parents to register your child for the course promptly!",
+            "date": "Nov 23 2020",
+            "time": "10:30am - 11:00am",
+            "venue": "Blossom World Society (Main Office) 9 Toh Yi Drive Singapore 590009",
+            "age": {
+                "min": 15,
+                "max": 22
+            },
+            "deadline": "Oct 30 2020",
+            "language": "English",
+            "stickers": {
+                "isSincerity": true,
+                "isGratitude": false,
+                "isService": true,
+                "isKindness": false
+            },
+            "imgUrl": ""
+        },
+        "event4": {
+            "id": 95676456454823423,
+            "name": "Happy Formula 快乐秘方 @ Aljunied",
+            "description": "Year 2020 is an eventful year. The Covid-19 pandemic let us see the positive (selflessness) and negative (self-centeredness) traits of human nature. Seeing the importance of cultivating the positive traits of our next generation, we should start them from young by sowing good seeds in their minds and hearts, and continue to irrigate and fertilise them to let them thrive. As the saying goes: it takes 10 years to cultivate a tree, 100 years to nurture a human being.Therefore, Joyous Learning Grove develops a series of moral education courses for children from 4 to 12 years old. These children will attend classes every week to learn about moral values such as filial piety, friendship, and helping others and implement them in their daily lives.The commencement of the course for the new semester is about to begin, we encourage all the parents to register your child for the course promptly!",
+            "date": "Nov 30 2020",
+            "time": "1:30pm - 2:30am",
+            "venue": "Blossom World Society (Main Office) 9 Toh Yi Drive Singapore 590009",
+            "age": {
+                "min": 17,
+                "max": 20
+            },
+            "deadline": "Nov 15 2020",
+            "language": "English",
+            "stickers": {
+                "isSincerity": true,
+                "isGratitude": false,
+                "isService": true,
+                "isKindness": true
+            },
+            "imgUrl": ""
+        }
+    }
+}
