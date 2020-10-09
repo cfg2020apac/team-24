@@ -5,6 +5,7 @@ import { getJob, acceptJob } from '../../utils/operations'
 import { Spin, Card, Button } from 'antd'
 import CurrentUserContext from '../../context/current-user.context'
 import { Link } from 'react-router-dom'
+import events from '../../events'
 
 const JobPage = ( props ) => {
 
@@ -13,6 +14,10 @@ const JobPage = ( props ) => {
     const [currentUser, setCurrentUser] =useContext(CurrentUserContext)
     const [loading, setLoading] = useState(false)
     const { match: { params } } = props
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     const onAccept=()=>{
         const client =getClient(currentUser.token)
@@ -34,17 +39,19 @@ const JobPage = ( props ) => {
 
     useEffect(()=>{
         setLoading(true)
-        const variables={
-            id: params.id
-        }
 
-        client.query({
-            query: getJob,
-            variables
-        }).then(({data})=>{
-            setJob(data.job)
-            setLoading(false)
-        })
+        const data = events[0]
+
+        setJob(data.job)
+        // client.query({
+        //     query: getJob,
+        //     variables
+        // }).then(({data})=>{
+        //     setJob(data.job)
+        //     setLoading(false)
+        // })
+
+        setLoading(false)
     }, [params.id])
 
     return (
@@ -56,29 +63,8 @@ const JobPage = ( props ) => {
                     <Card title={job.title}>
                         <p>ID: {job.id}</p>
                         <p>Description: {job.description}</p> 
-                        <p>Pay: {job.currency} {job.bill}</p>
                         <p>Date: {job.date}</p>
-                        {
-                            job.client?(
-                                <p>Client: <Link to={`/profile/${job.client.id}`}>{job.client.name}</Link></p>
-                            ):(
-                                <></>
-                            )
-                        }
-                        {
-                            job.associate?(
-                                <p>Associate: <Link to={`/profile/${job.associate.id}`}>{job.associate.name}</Link></p>
-                            ):(
-                                <></>
-                            )
-                        }
-                        <p>Available: {
-                            job.associate?(
-                                <text style={{color: 'red'}}>No</text>
-                            ):(
-                                <text style={{color: 'green'}}>Yes</text>
-                            )
-                        }</p>
+                        <p>Open to applications: <text style={{color: 'green'}}>Yes</text></p>
                         {
                             currentUser.token && job.client?(
                                 <>

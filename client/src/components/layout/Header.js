@@ -2,13 +2,15 @@ import React, { useContext } from "react"
 import { NavLink, withRouter } from "react-router-dom"
 import headerStyles from "./header.module.scss"
 import CurrentUserContext from '../../context/current-user.context'
-// import LogOut from "../../routes/authentication/LogOut"
+
+import firebase,{ firestore, auth } from '../../firebase'
 
 const Header = ({history}) => {
   const [currentUser, setCurrentUser]=useContext(CurrentUserContext)
 
   const LogOut=()=>{
       if(currentUser.token){
+          auth.signOut()
           console.log(currentUser, "logging out")
           setCurrentUser({
               token: undefined,
@@ -17,6 +19,22 @@ const Header = ({history}) => {
           localStorage.removeItem("user")
           history.push('/')
       }
+  }
+
+  const signInWithGoogle = () => {
+
+    const data = {
+      email: 'diabhaque@gmail.com',
+      password: '12345'
+  }
+    const userDetails={
+      token: data.password,
+      userId: data.email
+    }
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+    setCurrentUser(userDetails)
+    history.push(`/profile/${data.email}`)
   }
 
   return (
@@ -80,13 +98,12 @@ const Header = ({history}) => {
           !currentUser.token?(
             <>
               <li>
-                <NavLink
-                    className={headerStyles.navItem}
-                    activeClassName={headerStyles.activeNavItem}
-                    to="/signin"
+                <button 
+                  className={headerStyles.button}
+                  onClick={signInWithGoogle}
                 >
-                    Sign In
-                </NavLink>
+                  Sign In
+                </button>
               </li>
               <li>
                 <NavLink
