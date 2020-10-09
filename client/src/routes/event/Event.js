@@ -47,7 +47,7 @@ const JobPage = (props) => {
   useEffect(() => {
     setLoading(true);
 
-    const data = events[0];
+    const data = events[params.id -1];
 
     setJob(data);
     // client.query({
@@ -75,7 +75,7 @@ const JobPage = (props) => {
           <Row gutter={[16, 16]}>
             <Col span={6}>
               <img
-                src={require("../../assets/img/cfg_event_1.jpg")}
+                src={require(`../../assets/img/cfg_event_${params.id}.jpg`)}
                 style={{ width: "150px", height: "190px", objectFit: "cover" }}
               />
             </Col>

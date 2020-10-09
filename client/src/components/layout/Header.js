@@ -69,7 +69,7 @@ const Header = ({ history }) => {
             <NavLink
               className={headerStyles.navItem}
               activeClassName={headerStyles.activeNavItem}
-              to="/findjob"
+              to="/findevents"
             >
               Events
             </NavLink>
@@ -96,7 +96,7 @@ const Header = ({ history }) => {
             <NavLink
               className={headerStyles.navItem}
               activeClassName={headerStyles.activeNavItem}
-              to="/postjob"
+              to="/postevent"
             >
               Share an Event
             </NavLink>
